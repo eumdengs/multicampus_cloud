@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Category Page{% endblock %}
+{% block content %}
+
+    <div class="cutter_muster">
+        <div class="container">
+                <div class="row">
+                        <div class="col-xl-12">
+                            <div class="section_title2 text-center mb-90">
+                                {% if current_category %}{{current_category.name}}{% else %}All Products{% endif %}
+                            </div>
+                        </div>
+                </div>
+    
+            <div class="row">
+            {% for product in products %}
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="single_master">
+                        <div class="thumb">
+                            <img src="{{product.image.url}}" alt="Product Image">
+                            <div class="social_link">
+                                <a href="{{product.get_absolute_url}}">View Detail</a>
+                            </div>
+                        </div>
+                        <div class="master_name text-center">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.description}}</p>
+                            <p>${{product.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}   
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

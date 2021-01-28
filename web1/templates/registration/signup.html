@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+
+
+<div class="red_container">
+    <h1>회원가입</h1>
+<form class="register regi" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    이름:
+    <br>
+    <input name="username" type="text" value="">
+    <br>
+    비밀번호:
+    <br>
+    <input name="password1" type="password" value="">
+    <br>
+    비밀번호 확인:
+    <br>
+    <input name="password2" type="password" value="">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Sign Up!">
+</form>
+</div>
+{% endblock %}
